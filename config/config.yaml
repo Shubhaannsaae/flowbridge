@@ -1,0 +1,348 @@
+# FlowBridge Application Configuration
+# Main configuration file for all environments
+
+# Application Information
+app:
+  name: "FlowBridge"
+  version: "1.0.0"
+  description: "Next-Generation DeFi Platform"
+  author: "FlowBridge Team"
+  license: "MIT"
+  repository: "https://github.com/flowbridge/flowbridge-frontend"
+
+# Environment Configuration
+environments:
+  development:
+    debug: true
+    log_level: "debug"
+    cache_ttl: 60000
+    api_timeout: 30000
+    
+  staging:
+    debug: false
+    log_level: "info"
+    cache_ttl: 300000
+    api_timeout: 30000
+    
+  production:
+    debug: false
+    log_level: "error"
+    cache_ttl: 300000
+    api_timeout: 30000
+
+# MetaMask SDK Configuration
+metamask:
+  sdk:
+    enabled: true
+    debug: false
+    use_deeplink: true
+    prefer_desktop: false
+    check_installation_immediately: false
+    
+  dapp_metadata:
+    name: "FlowBridge"
+    url: "https://flowbridge.app"
+    icon_url: "https://flowbridge.app/icon.png"
+    
+  features:
+    mobile_connection: true
+    cross_platform: true
+    session_management: true
+    secure_deeplinking: true
+
+# Blockchain Networks Configuration
+networks:
+  ethereum:
+    chain_id: 1
+    name: "Ethereum Mainnet"
+    symbol: "ETH"
+    decimals: 18
+    block_explorer: "https://etherscan.io"
+    multicall_address: "0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696"
+    
+  polygon:
+    chain_id: 137
+    name: "Polygon"
+    symbol: "MATIC"
+    decimals: 18
+    block_explorer: "https://polygonscan.com"
+    multicall_address: "0xa1B2b503959aedD81512C37e9dce48164ec6a94d"
+    
+  arbitrum:
+    chain_id: 42161
+    name: "Arbitrum One"
+    symbol: "ETH"
+    decimals: 18
+    block_explorer: "https://arbiscan.io"
+    multicall_address: "0x842eC2c7D803033Edf55E478F461FC547Bc54EB2"
+    
+  optimism:
+    chain_id: 10
+    name: "Optimism"
+    symbol: "ETH"
+    decimals: 18
+    block_explorer: "https://optimistic.etherscan.io"
+    multicall_address: "0x2DC0E2aa608532Da689e89e237dF582B783E552C"
+    
+  base:
+    chain_id: 8453
+    name: "Base"
+    symbol: "ETH"
+    decimals: 18
+    block_explorer: "https://basescan.org"
+    multicall_address: "0xcA11bde05977b3631167028862bE2a173976CA11"
+    
+  linea:
+    chain_id: 59144
+    name: "Linea"
+    symbol: "ETH"
+    decimals: 18
+    block_explorer: "https://lineascan.build"
+    multicall_address: "0xcA11bde05977b3631167028862bE2a173976CA11"
+
+# LI.FI Cross-Chain Configuration
+lifi:
+  api_url: "https://li.quest/v1"
+  integrator: "flowbridge"
+  supported_bridges:
+    - "hop"
+    - "across"
+    - "stargate"
+    - "multichain"
+    - "cbridge"
+    - "hyphen"
+    - "polygon"
+    - "arbitrum"
+    - "optimism"
+  
+  default_settings:
+    slippage: 0.005
+    max_price_impact: 0.4
+    allow_switch_chain: false
+    
+  timeouts:
+    quote_timeout: 30000
+    execution_timeout: 300000
+
+# Verax Attestation Registry Configuration
+verax:
+  enabled: true
+  registry_address: "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e"
+  supported_chains:
+    - 1      # Ethereum
+    - 137    # Polygon
+    - 42161  # Arbitrum
+    - 10     # Optimism
+    - 59144  # Linea
+  
+  attestation_types:
+    yield_performance: "0x1234567890abcdef1234567890abcdef12345678"
+    risk_assessment: "0xabcdef1234567890abcdef1234567890abcdef12"
+    protocol_audit: "0x567890abcdef1234567890abcdef1234567890ab"
+
+# DeFi Protocols Configuration
+protocols:
+  aave:
+    name: "Aave"
+    category: "lending"
+    supported_chains: [1, 137, 42161, 10]
+    contracts:
+      v3_pool: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
+    risk_score: 25
+    
+  compound:
+    name: "Compound"
+    category: "lending"
+    supported_chains: [1, 137, 42161]
+    contracts:
+      comptroller: "0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B"
+    risk_score: 30
+    
+  uniswap:
+    name: "Uniswap V3"
+    category: "dex"
+    supported_chains: [1, 137, 42161, 10, 8453]
+    contracts:
+      factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
+      router: "0xE592427A0AEce92De3Edee1F18E0157C05861564"
+    risk_score: 35
+    
+  curve:
+    name: "Curve Finance"
+    category: "dex"
+    supported_chains: [1, 137, 42161, 10]
+    contracts:
+      registry: "0x90E00ACe148ca3b23Ac1bC8C240C2a7Dd9c2d7f5"
+    risk_score: 40
+
+# Risk Management Configuration
+risk_management:
+  default_tolerance: 5
+  risk_levels:
+    very_low: { min: 1, max: 2, max_allocation: 100 }
+    low: { min: 3, max: 4, max_allocation: 80 }
+    medium: { min: 5, max: 6, max_allocation: 60 }
+    high: { min: 7, max: 8, max_allocation: 40 }
+    very_high: { min: 9, max: 10, max_allocation: 20 }
+  
+  limits:
+    max_single_protocol: 60
+    max_single_token: 80
+    max_single_chain: 70
+    min_diversification_score: 30
+
+# AI Optimization Configuration
+ai_optimization:
+  enabled: true
+  models:
+    yield_optimizer:
+      version: "2.1.0"
+      confidence_threshold: 0.7
+      update_frequency: 3600 # seconds
+      
+    risk_analyzer:
+      version: "3.2.1"
+      alert_threshold: 0.8
+      monitoring_frequency: 1800 # seconds
+      
+    market_analyzer:
+      version: "1.9.2"
+      sentiment_sources: ["twitter", "reddit", "news"]
+      update_frequency: 7200 # seconds
+
+# Security Configuration
+security:
+  authentication:
+    jwt_expiry: "24h"
+    refresh_expiry: "7d"
+    max_sessions: 5
+    
+  rate_limiting:
+    window_ms: 900000 # 15 minutes
+    max_requests: 100
+    skip_successful_requests: false
+    
+  cors:
+    allowed_origins:
+      - "https://flowbridge.app"
+      - "https://www.flowbridge.app"
+    allowed_methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    allowed_headers: ["Content-Type", "Authorization"]
+    
+  content_security_policy:
+    default_src: "'self'"
+    script_src: "'self' 'unsafe-eval' 'unsafe-inline' *.metamask.io *.infura.io *.li.fi"
+    style_src: "'self' 'unsafe-inline'"
+    img_src: "'self' data: https:"
+    connect_src: "'self' *.metamask.io *.infura.io *.li.fi wss: https:"
+
+# Performance Configuration
+performance:
+  caching:
+    default_ttl: 300000 # 5 minutes
+    api_ttl: 60000 # 1 minute
+    static_ttl: 86400000 # 24 hours
+    
+  optimization:
+    bundle_splitting: true
+    code_splitting: true
+    tree_shaking: true
+    minification: true
+    
+  monitoring:
+    core_web_vitals: true
+    performance_budgets:
+      javascript: "500kb"
+      css: "150kb"
+      images: "2mb"
+
+# Feature Flags
+features:
+  ai_optimization: true
+  cross_chain_bridging: true
+  card_integration: true
+  analytics_tracking: true
+  push_notifications: true
+  dark_mode: true
+  testnet_support: false
+  social_login: true
+  multi_language: false
+
+# Analytics Configuration
+analytics:
+  google_analytics:
+    enabled: true
+    anonymize_ip: true
+    cookie_expires: 63072000 # 2 years
+    
+  mixpanel:
+    enabled: true
+    track_utm: true
+    secure_cookie: true
+    
+  custom_events:
+    - "wallet_connected"
+    - "strategy_created"
+    - "yield_harvested"
+    - "portfolio_rebalanced"
+    - "cross_chain_bridge"
+
+# Monitoring and Logging
+monitoring:
+  sentry:
+    enabled: true
+    environment: "production"
+    sample_rate: 0.1
+    traces_sample_rate: 0.1
+    
+  logging:
+    level: "info"
+    format: "json"
+    max_files: 30
+    max_size: "10mb"
+
+# Backup and Recovery
+backup:
+  rpc_endpoints:
+    ethereum:
+      - "https://eth.llamarpc.com"
+      - "https://rpc.ankr.com/eth"
+      - "https://ethereum.publicnode.com"
+    polygon:
+      - "https://polygon.llamarpc.com"
+      - "https://rpc.ankr.com/polygon"
+      - "https://polygon-rpc.com"
+    arbitrum:
+      - "https://arbitrum.llamarpc.com"
+      - "https://rpc.ankr.com/arbitrum"
+      - "https://arb1.arbitrum.io/rpc"
+    optimism:
+      - "https://optimism.llamarpc.com"
+      - "https://rpc.ankr.com/optimism"
+      - "https://mainnet.optimism.io"
+
+# External Services
+external_services:
+  coingecko:
+    api_url: "https://api.coingecko.com/api/v3"
+    rate_limit: 10 # requests per minute
+    timeout: 10000
+    
+  ipfs:
+    gateway: "https://ipfs.io/ipfs/"
+    pinata_api: "https://api.pinata.cloud"
+    timeout: 30000
+    
+  email:
+    provider: "sendgrid"
+    from_address: "noreply@flowbridge.app"
+    from_name: "FlowBridge"
+
+# Development Tools
+development:
+  hot_reload: true
+  source_maps: true
+  bundle_analyzer: false
+  typescript_strict: true
+  eslint_strict: true
+  prettier_format: true
