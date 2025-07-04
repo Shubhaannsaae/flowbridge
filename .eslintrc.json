@@ -1,0 +1,150 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "@typescript-eslint/recommended",
+    "@typescript-eslint/recommended-requiring-type-checking",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "project": ["./frontend/tsconfig.json"],
+    "tsconfigRootDir": "."
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react-hooks",
+    "tailwindcss"
+  ],
+  "rules": {
+    // TypeScript rules
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/strict-boolean-expressions": "error",
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-misused-promises": "error",
+    "@typescript-eslint/require-await": "error",
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/prefer-as-const": "error",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { "prefer": "type-imports" }
+    ],
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    "@typescript-eslint/array-type": ["error", { "default": "array-simple" }],
+    
+    // React hooks rules
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    
+    // React rules
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+    "react/jsx-key": "error",
+    "react/jsx-no-duplicate-props": "error",
+    "react/jsx-no-undef": "error",
+    "react/jsx-uses-vars": "error",
+    "react/no-array-index-key": "warn",
+    "react/no-unescaped-entities": "error",
+    
+    // General JavaScript rules
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-debugger": "error",
+    "no-alert": "error",
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-new-func": "error",
+    "no-script-url": "error",
+    "no-unused-expressions": "error",
+    "no-useless-concat": "error",
+    "no-useless-return": "error",
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "eqeqeq": ["error", "always"],
+    "curly": ["error", "all"],
+    "no-var": "error",
+    "object-shorthand": "error",
+    "prefer-arrow-callback": "error",
+    
+    // Import rules
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": true
+      }
+    ],
+    
+    // Tailwind CSS rules
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/no-contradicting-classname": "error",
+    
+    // Security rules
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-new-func": "error",
+    "no-script-url": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
+    },
+    {
+      "files": ["*.test.ts", "*.test.tsx", "*.spec.ts", "*.spec.tsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off"
+      }
+    },
+    {
+      "files": ["frontend/pages/api/**/*.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "tailwindcss": {
+      "callees": ["cn", "clsx", "cva"],
+      "config": "./frontend/tailwind.config.js"
+    }
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    ".next/",
+    "out/",
+    "dist/",
+    "build/",
+    "coverage/",
+    "*.min.js",
+    "public/",
+    ".eslintrc.js"
+  ]
+}
