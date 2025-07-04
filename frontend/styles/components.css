@@ -1,0 +1,511 @@
+/* FlowBridge Frontend - Component Styles */
+
+/* Button Component Variants */
+.btn-variant-default {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.btn-variant-destructive {
+  @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+}
+
+.btn-variant-outline {
+  @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+}
+
+.btn-variant-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}
+
+.btn-variant-ghost {
+  @apply hover:bg-accent hover:text-accent-foreground;
+}
+
+.btn-variant-link {
+  @apply text-primary underline-offset-4 hover:underline;
+}
+
+.btn-variant-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700;
+}
+
+/* Button Sizes */
+.btn-size-default {
+  @apply h-10 px-4 py-2;
+}
+
+.btn-size-sm {
+  @apply h-9 rounded-md px-3;
+}
+
+.btn-size-lg {
+  @apply h-11 rounded-md px-8;
+}
+
+.btn-size-xl {
+  @apply h-12 rounded-lg px-10 text-lg;
+}
+
+.btn-size-icon {
+  @apply h-10 w-10;
+}
+
+/* Card Component Variants */
+.card-variant-default {
+  @apply bg-card text-card-foreground shadow-sm;
+}
+
+.card-variant-elevated {
+  @apply bg-card text-card-foreground shadow-lg;
+}
+
+.card-variant-outline {
+  @apply bg-card text-card-foreground border border-border;
+}
+
+.card-variant-ghost {
+  @apply bg-transparent;
+}
+
+/* Modal Component Overlays */
+.modal-overlay {
+  @apply fixed inset-0 z-50 bg-black/80 backdrop-blur-sm;
+  animation: fadeIn var(--duration-fast) var(--ease-out);
+}
+
+.modal-content {
+  @apply fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 sm:rounded-lg;
+  animation: scaleIn var(--duration-fast) var(--ease-out);
+}
+
+/* Toast Component Positions */
+.toast-viewport {
+  @apply fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px];
+}
+
+.toast-variant-default {
+  @apply border bg-background text-foreground;
+}
+
+.toast-variant-destructive {
+  @apply destructive group border-destructive bg-destructive text-destructive-foreground;
+}
+
+.toast-variant-success {
+  @apply border-green-200 bg-green-50 text-green-800;
+}
+
+.toast-variant-warning {
+  @apply border-yellow-200 bg-yellow-50 text-yellow-800;
+}
+
+.toast-variant-info {
+  @apply border-blue-200 bg-blue-50 text-blue-800;
+}
+
+/* Loading Spinner Variants */
+.spinner-variant-default {
+  @apply animate-spin rounded-full border-2 border-current border-t-transparent;
+}
+
+.spinner-variant-dots {
+  @apply flex space-x-1;
+}
+
+.spinner-variant-dots > div {
+  @apply h-2 w-2 animate-bounce rounded-full bg-current;
+}
+
+.spinner-variant-dots > div:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.spinner-variant-dots > div:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.spinner-variant-pulse {
+  @apply animate-pulse rounded-full bg-current;
+}
+
+/* Data Table Styles */
+.data-table {
+  @apply w-full caption-bottom text-sm;
+}
+
+.data-table thead {
+  @apply border-b;
+}
+
+.data-table thead th {
+  @apply h-12 px-4 text-left align-middle font-medium text-muted-foreground;
+}
+
+.data-table tbody tr {
+  @apply border-b transition-colors hover:bg-muted/50;
+}
+
+.data-table tbody td {
+  @apply p-4 align-middle;
+}
+
+.data-table tbody tr:last-child {
+  @apply border-0;
+}
+
+/* Form Component Styles */
+.form-field {
+  @apply space-y-2;
+}
+
+.form-label {
+  @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+
+.form-input {
+  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.form-textarea {
+  @apply flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.form-select {
+  @apply flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.form-error {
+  @apply text-sm font-medium text-destructive;
+}
+
+.form-description {
+  @apply text-sm text-muted-foreground;
+}
+
+/* Navigation Component Styles */
+.nav-link {
+  @apply flex items-center space-x-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground;
+}
+
+.nav-link.active {
+  @apply bg-accent text-accent-foreground;
+}
+
+.nav-item {
+  @apply relative;
+}
+
+.nav-item::after {
+  content: '';
+  @apply absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300;
+}
+
+.nav-item.active::after {
+  @apply w-full;
+}
+
+/* Sidebar Component Styles */
+.sidebar {
+  @apply flex h-full w-64 flex-col border-r bg-card;
+  transition: width var(--duration-normal) var(--ease-in-out);
+}
+
+.sidebar.collapsed {
+  @apply w-16;
+}
+
+.sidebar-header {
+  @apply flex h-16 items-center border-b px-4;
+}
+
+.sidebar-content {
+  @apply flex-1 overflow-auto p-4;
+}
+
+.sidebar-footer {
+  @apply border-t p-4;
+}
+
+/* Header Component Styles */
+.header {
+  @apply sticky top-0 z-40 flex h-16 items-center border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60;
+}
+
+.header-content {
+  @apply container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0;
+}
+
+.header-nav {
+  @apply flex items-center space-x-6 text-sm font-medium;
+}
+
+.header-actions {
+  @apply flex items-center space-x-2;
+}
+
+/* Dashboard Layout Styles */
+.dashboard-layout {
+  @apply flex h-screen overflow-hidden;
+}
+
+.dashboard-sidebar {
+  @apply hidden md:flex md:w-64 md:flex-col;
+}
+
+.dashboard-main {
+  @apply flex flex-1 flex-col overflow-hidden;
+}
+
+.dashboard-content {
+  @apply flex-1 overflow-auto p-6;
+}
+
+/* Chart Container Styles */
+.chart-container {
+  @apply relative h-full w-full;
+}
+
+.chart-loading {
+  @apply absolute inset-0 flex items-center justify-center bg-background/80;
+}
+
+.chart-error {
+  @apply absolute inset-0 flex items-center justify-center bg-destructive/10 text-destructive;
+}
+
+.chart-tooltip {
+  @apply rounded-lg border bg-popover p-3 text-sm shadow-lg;
+}
+
+/* Metric Card Styles */
+.metric-card {
+  @apply rounded-lg border bg-card p-6 shadow-sm;
+}
+
+.metric-value {
+  @apply text-2xl font-bold;
+}
+
+.metric-label {
+  @apply text-sm font-medium text-muted-foreground;
+}
+
+.metric-change {
+  @apply text-sm font-medium;
+}
+
+.metric-change.positive {
+  @apply text-green-600;
+}
+
+.metric-change.negative {
+  @apply text-red-600;
+}
+
+.metric-change.neutral {
+  @apply text-muted-foreground;
+}
+
+/* Badge Component Styles */
+.badge {
+  @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+}
+
+.badge-variant-default {
+  @apply border-transparent bg-primary text-primary-foreground hover:bg-primary/80;
+}
+
+.badge-variant-secondary {
+  @apply border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}
+
+.badge-variant-destructive {
+  @apply border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80;
+}
+
+.badge-variant-outline {
+  @apply text-foreground;
+}
+
+.badge-variant-success {
+  @apply border-transparent bg-green-500 text-white hover:bg-green-500/80;
+}
+
+.badge-variant-warning {
+  @apply border-transparent bg-yellow-500 text-white hover:bg-yellow-500/80;
+}
+
+.badge-variant-info {
+  @apply border-transparent bg-blue-500 text-white hover:bg-blue-500/80;
+}
+
+/* Progress Component Styles */
+.progress {
+  @apply relative h-4 w-full overflow-hidden rounded-full bg-secondary;
+}
+
+.progress-indicator {
+  @apply h-full w-full flex-1 bg-primary transition-all;
+}
+
+/* Avatar Component Styles */
+.avatar {
+  @apply relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full;
+}
+
+.avatar-image {
+  @apply aspect-square h-full w-full;
+}
+
+.avatar-fallback {
+  @apply flex h-full w-full items-center justify-center rounded-full bg-muted;
+}
+
+/* Accordion Component Styles */
+.accordion-item {
+  @apply border-b;
+}
+
+.accordion-trigger {
+  @apply flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline;
+}
+
+.accordion-content {
+  @apply overflow-hidden text-sm transition-all;
+}
+
+.accordion-content[data-state="open"] {
+  @apply animate-slide-in-top;
+}
+
+.accordion-content[data-state="closed"] {
+  @apply animate-slide-in-bottom;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-content {
+  @apply z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md;
+  animation: scaleIn var(--duration-fast) var(--ease-out);
+}
+
+.dropdown-item {
+  @apply relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+}
+
+.dropdown-separator {
+  @apply -mx-1 my-1 h-px bg-muted;
+}
+
+.dropdown-label {
+  @apply px-2 py-1.5 text-sm font-semibold;
+}
+
+/* Skeleton Loading Styles */
+.skeleton {
+  @apply animate-pulse rounded-md bg-muted;
+}
+
+.skeleton-text {
+  @apply h-4 w-full rounded;
+}
+
+.skeleton-avatar {
+  @apply h-10 w-10 rounded-full;
+}
+
+.skeleton-button {
+  @apply h-10 w-20 rounded-md;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    @apply hidden;
+  }
+  
+  .mobile-full-width {
+    @apply w-full;
+  }
+  
+  .mobile-stack {
+    @apply flex-col space-x-0 space-y-2;
+  }
+}
+
+@media (min-width: 768px) {
+  .desktop-hidden {
+    @apply hidden;
+  }
+}
+
+/* Focus Trap for Modals */
+.focus-trap {
+  @apply outline-none;
+}
+
+/* Transition Classes */
+.transition-default {
+  transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+.transition-fast {
+  transition: all var(--duration-fast) var(--ease-in-out);
+}
+
+.transition-slow {
+  transition: all var(--duration-slow) var(--ease-in-out);
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform hover:scale-105;
+}
+
+.hover-glow {
+  @apply transition-shadow hover:shadow-lg;
+}
+
+.hover-fade {
+  @apply transition-opacity hover:opacity-80;
+}
+
+/* Glass Morphism */
+.glass {
+  @apply bg-white/10 backdrop-blur-lg border border-white/20;
+}
+
+.glass-dark {
+  @apply bg-black/10 backdrop-blur-lg border border-white/10;
+}
+
+/* Grid Layouts */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.grid-auto-fill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* Custom Properties Animation */
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.gradient-border {
+  border: 2px solid;
+  border-image: conic-gradient(from var(--gradient-angle), #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd, #ff6b6b) 1;
+  animation: rotate-gradient 4s linear infinite;
+}
+
+@keyframes rotate-gradient {
+  to {
+    --gradient-angle: 360deg;
+  }
+}

@@ -1,0 +1,399 @@
+/* FlowBridge Frontend - Theme Definitions */
+
+/* Light Theme (Default) */
+[data-theme="light"] {
+  /* Primary Colors */
+  --color-primary: 59 130 246;
+  --color-primary-foreground: 255 255 255;
+  --color-primary-50: 239 246 255;
+  --color-primary-100: 219 234 254;
+  --color-primary-500: 59 130 246;
+  --color-primary-600: 37 99 235;
+  --color-primary-700: 29 78 216;
+  --color-primary-900: 30 58 138;
+  
+  /* Secondary Colors */
+  --color-secondary: 241 245 249;
+  --color-secondary-foreground: 15 23 42;
+  --color-secondary-50: 248 250 252;
+  --color-secondary-100: 241 245 249;
+  --color-secondary-500: 148 163 184;
+  --color-secondary-600: 100 116 139;
+  --color-secondary-700: 71 85 105;
+  --color-secondary-900: 15 23 42;
+  
+  /* Background Colors */
+  --color-background: 255 255 255;
+  --color-foreground: 15 23 42;
+  --color-background-secondary: 248 250 252;
+  
+  /* Surface Colors */
+  --color-card: 255 255 255;
+  --color-card-foreground: 15 23 42;
+  --color-popover: 255 255 255;
+  --color-popover-foreground: 15 23 42;
+  
+  /* Muted Colors */
+  --color-muted: 241 245 249;
+  --color-muted-foreground: 100 116 139;
+  
+  /* Accent Colors */
+  --color-accent: 241 245 249;
+  --color-accent-foreground: 15 23 42;
+  
+  /* Border Colors */
+  --color-border: 226 232 240;
+  --color-input: 226 232 240;
+  --color-ring: 59 130 246;
+  
+  /* Status Colors */
+  --color-destructive: 239 68 68;
+  --color-destructive-foreground: 255 255 255;
+  --color-success: 34 197 94;
+  --color-success-foreground: 255 255 255;
+  --color-warning: 245 158 11;
+  --color-warning-foreground: 255 255 255;
+  --color-info: 59 130 246;
+  --color-info-foreground: 255 255 255;
+  
+  /* Chart Colors */
+  --chart-primary: 59 130 246;
+  --chart-secondary: 16 185 129;
+  --chart-tertiary: 245 158 11;
+  --chart-quaternary: 239 68 68;
+  --chart-quinary: 139 92 246;
+  
+  /* Shadows */
+  --shadow-color: 0 0 0;
+  --shadow-opacity: 0.1;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  /* Primary Colors */
+  --color-primary: 96 165 250;
+  --color-primary-foreground: 30 58 138;
+  --color-primary-50: 30 58 138;
+  --color-primary-100: 29 78 216;
+  --color-primary-500: 96 165 250;
+  --color-primary-600: 59 130 246;
+  --color-primary-700: 37 99 235;
+  --color-primary-900: 239 246 255;
+  
+  /* Secondary Colors */
+  --color-secondary: 39 39 42;
+  --color-secondary-foreground: 250 250 250;
+  --color-secondary-50: 250 250 250;
+  --color-secondary-100: 244 244 245;
+  --color-secondary-500: 113 113 122;
+  --color-secondary-600: 82 82 91;
+  --color-secondary-700: 63 63 70;
+  --color-secondary-900: 24 24 27;
+  
+  /* Background Colors */
+  --color-background: 9 9 11;
+  --color-foreground: 250 250 250;
+  --color-background-secondary: 24 24 27;
+  
+  /* Surface Colors */
+  --color-card: 24 24 27;
+  --color-card-foreground: 250 250 250;
+  --color-popover: 24 24 27;
+  --color-popover-foreground: 250 250 250;
+  
+  /* Muted Colors */
+  --color-muted: 39 39 42;
+  --color-muted-foreground: 161 161 170;
+  
+  /* Accent Colors */
+  --color-accent: 39 39 42;
+  --color-accent-foreground: 250 250 250;
+  
+  /* Border Colors */
+  --color-border: 39 39 42;
+  --color-input: 39 39 42;
+  --color-ring: 96 165 250;
+  
+  /* Status Colors */
+  --color-destructive: 220 38 38;
+  --color-destructive-foreground: 250 250 250;
+  --color-success: 22 163 74;
+  --color-success-foreground: 255 255 255;
+  --color-warning: 217 119 6;
+  --color-warning-foreground: 255 255 255;
+  --color-info: 96 165 250;
+  --color-info-foreground: 255 255 255;
+  
+  /* Chart Colors */
+  --chart-primary: 96 165 250;
+  --chart-secondary: 34 197 94;
+  --chart-tertiary: 251 191 36;
+  --chart-quaternary: 248 113 113;
+  --chart-quinary: 167 139 250;
+  
+  /* Shadows */
+  --shadow-color: 0 0 0;
+  --shadow-opacity: 0.5;
+}
+
+/* High Contrast Theme */
+[data-theme="high-contrast"] {
+  --color-primary: 0 0 255;
+  --color-primary-foreground: 255 255 255;
+  --color-background: 255 255 255;
+  --color-foreground: 0 0 0;
+  --color-card: 255 255 255;
+  --color-card-foreground: 0 0 0;
+  --color-border: 0 0 0;
+  --color-input: 0 0 0;
+  --color-ring: 0 0 255;
+  --color-destructive: 255 0 0;
+  --color-destructive-foreground: 255 255 255;
+  --color-success: 0 128 0;
+  --color-success-foreground: 255 255 255;
+  --color-warning: 255 165 0;
+  --color-warning-foreground: 0 0 0;
+}
+
+[data-theme="high-contrast"][data-dark="true"] {
+  --color-background: 0 0 0;
+  --color-foreground: 255 255 255;
+  --color-card: 0 0 0;
+  --color-card-foreground: 255 255 255;
+  --color-border: 255 255 255;
+  --color-input: 255 255 255;
+  --color-ring: 255 255 0;
+}
+
+/* Colorful Theme */
+[data-theme="colorful"] {
+  --color-primary: 168 85 247;
+  --color-primary-foreground: 255 255 255;
+  --color-secondary: 236 72 153;
+  --color-secondary-foreground: 255 255 255;
+  --color-accent: 14 165 233;
+  --color-accent-foreground: 255 255 255;
+  --color-success: 34 197 94;
+  --color-warning: 245 158 11;
+  --color-destructive: 239 68 68;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, rgb(168 85 247) 0%, rgb(236 72 153) 100%);
+  --gradient-secondary: linear-gradient(135deg, rgb(14 165 233) 0%, rgb(34 197 94) 100%);
+  --gradient-accent: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(239 68 68) 100%);
+}
+
+/* Minimal Theme */
+[data-theme="minimal"] {
+  --color-primary: 0 0 0;
+  --color-primary-foreground: 255 255 255;
+  --color-secondary: 245 245 245;
+  --color-secondary-foreground: 0 0 0;
+  --color-background: 255 255 255;
+  --color-foreground: 0 0 0;
+  --color-card: 255 255 255;
+  --color-card-foreground: 0 0 0;
+  --color-muted: 250 250 250;
+  --color-muted-foreground: 100 100 100;
+  --color-border: 230 230 230;
+  --color-input: 230 230 230;
+  --color-ring: 0 0 0;
+  
+  /* Remove shadows for minimal look */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+}
+
+/* DeFi-specific Theme */
+[data-theme="defi"] {
+  --color-primary: 16 185 129;
+  --color-primary-foreground: 255 255 255;
+  --color-secondary: 59 130 246;
+  --color-secondary-foreground: 255 255 255;
+  --color-accent: 245 158 11;
+  --color-accent-foreground: 255 255 255;
+  
+  /* DeFi Protocol Colors */
+  --color-ethereum: 98 126 234;
+  --color-polygon: 130 71 229;
+  --color-arbitrum: 40 160 240;
+  --color-optimism: 255 4 32;
+  --color-base: 0 82 255;
+  --color-linea: 18 18 18;
+  
+  /* Yield Status Colors */
+  --color-yield-high: 34 197 94;
+  --color-yield-medium: 245 158 11;
+  --color-yield-low: 239 68 68;
+  
+  /* Risk Level Colors */
+  --color-risk-low: 34 197 94;
+  --color-risk-medium: 245 158 11;
+  --color-risk-high: 239 68 68;
+  --color-risk-very-high: 185 28 28;
+}
+
+/* Theme Transition Animations */
+.theme-transition {
+  transition: 
+    color var(--duration-normal) var(--ease-in-out),
+    background-color var(--duration-normal) var(--ease-in-out),
+    border-color var(--duration-normal) var(--ease-in-out),
+    box-shadow var(--duration-normal) var(--ease-in-out);
+}
+
+/* Theme-specific Component Overrides */
+[data-theme="dark"] .glass {
+  @apply bg-white/5 border-white/10;
+}
+
+[data-theme="high-contrast"] .glass {
+  @apply bg-transparent border-current;
+  backdrop-filter: none;
+}
+
+[data-theme="minimal"] .card-variant-elevated,
+[data-theme="minimal"] .modal-content {
+  box-shadow: none;
+  border: 1px solid rgb(var(--color-border));
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+  @apply relative h-6 w-11 rounded-full bg-muted transition-colors;
+}
+
+.theme-toggle-thumb {
+  @apply absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-background transition-transform;
+}
+
+.theme-toggle[data-state="checked"] .theme-toggle-thumb {
+  @apply translate-x-5;
+}
+
+/* Print Theme Override */
+@media print {
+  * {
+    --color-background: 255 255 255 !important;
+    --color-foreground: 0 0 0 !important;
+    --color-card: 255 255 255 !important;
+    --color-card-foreground: 0 0 0 !important;
+    --color-border: 0 0 0 !important;
+    --shadow-sm: none !important;
+    --shadow-md: none !important;
+    --shadow-lg: none !important;
+    --shadow-xl: none !important;
+  }
+}
+
+/* Reduced Motion Theme Adjustments */
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition {
+    transition: none;
+  }
+}
+
+/* Color Blind Friendly Adjustments */
+@media (prefers-contrast: more) {
+  :root {
+    --color-success: 0 128 0;
+    --color-warning: 255 140 0;
+    --color-destructive: 204 0 0;
+    --color-info: 0 0 255;
+  }
+}
+
+/* System Theme Detection */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-background: 9 9 11;
+    --color-foreground: 250 250 250;
+    --color-card: 24 24 27;
+    --color-card-foreground: 250 250 250;
+    --color-popover: 24 24 27;
+    --color-popover-foreground: 250 250 250;
+    --color-primary: 96 165 250;
+    --color-primary-foreground: 30 58 138;
+    --color-secondary: 39 39 42;
+    --color-secondary-foreground: 250 250 250;
+    --color-muted: 39 39 42;
+    --color-muted-foreground: 161 161 170;
+    --color-accent: 39 39 42;
+    --color-accent-foreground: 250 250 250;
+    --color-destructive: 220 38 38;
+    --color-destructive-foreground: 250 250 250;
+    --color-border: 39 39 42;
+    --color-input: 39 39 42;
+    --color-ring: 96 165 250;
+  }
+}
+
+/* Theme Persistence */
+.theme-persistent {
+  color-scheme: light dark;
+}
+
+[data-theme="dark"] .theme-persistent {
+  color-scheme: dark;
+}
+
+[data-theme="light"] .theme-persistent {
+  color-scheme: light;
+}
+
+/* Custom Theme Variables for MetaMask Integration */
+.metamask-theme {
+  --metamask-orange: 245 130 32;
+  --metamask-orange-light: 255 178 102;
+  --metamask-orange-dark: 206 110 27;
+  --metamask-blue: 3 125 214;
+  --metamask-gray: 115 115 115;
+}
+
+/* DeFi Protocol Theme Colors */
+.protocol-aave {
+  --protocol-primary: 181 71 190;
+  --protocol-secondary: 255 255 255;
+}
+
+.protocol-compound {
+  --protocol-primary: 39 217 128;
+  --protocol-secondary: 255 255 255;
+}
+
+.protocol-uniswap {
+  --protocol-primary: 255 0 122;
+  --protocol-secondary: 255 255 255;
+}
+
+.protocol-curve {
+  --protocol-primary: 15 185 255;
+  --protocol-secondary: 255 255 255;
+}
+
+.protocol-yearn {
+  --protocol-primary: 0 114 255;
+  --protocol-secondary: 255 255 255;
+}
+
+/* Theme-aware Focus Styles */
+[data-theme="dark"] *:focus-visible {
+  outline-color: rgb(var(--color-ring));
+}
+
+[data-theme="high-contrast"] *:focus-visible {
+  outline: 3px solid rgb(var(--color-ring));
+  outline-offset: 2px;
+}
+
+/* Theme-specific Animations */
+[data-theme="dark"] .animate-shimmer {
+  background: linear-gradient(90deg, rgb(var(--color-muted)) 0%, rgb(var(--color-accent)) 50%, rgb(var(--color-muted)) 100%);
+}
+
+[data-theme="colorful"] .animate-shimmer {
+  background: var(--gradient-primary);
+  background-size: 200% 100%;
+}
