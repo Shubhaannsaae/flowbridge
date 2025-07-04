@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "commonjs",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@contracts/*": ["./contracts/*"],
+      "@test/*": ["./test/*"],
+      "@scripts/*": ["./scripts/*"],
+      "@typechain-types/*": ["./typechain-types/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "incremental": true,
+    "tsBuildInfoFile": "./dist/.tsbuildinfo"
+  },
+  "include": [
+    "./scripts/**/*",
+    "./test/**/*",
+    "./typechain-types/**/*",
+    "./hardhat.config.ts",
+    "./deploy/**/*"
+  ],
+  "exclude": [
+    "./dist",
+    "./cache",
+    "./artifacts",
+    "./coverage",
+    "./node_modules",
+    "./contracts"
+  ],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+    "files": true
+  }
+}
