@@ -1,0 +1,25 @@
+# Production dependencies (includes base)
+-r base.txt
+
+# Production web server
+gunicorn==21.2.0
+
+# Monitoring and logging
+prometheus-client==0.17.1
+statsd==4.0.1
+
+# Security
+cryptography==41.0.3
+
+# Performance
+ujson==5.8.0
+orjson==3.9.4
+
+# Production database drivers
+psycopg2-binary==2.9.7
+
+# Health checks
+psutil==5.9.5
+
+# Environment management
+python-decouple==3.8
