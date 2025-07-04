@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15.4-alpine
+    container_name: flowbridge-postgres
+    restart: unless-stopped
+    
+    environment:
+      POSTGRES_USER: flowbridge
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-flowbridge_secure_2024}
+      POSTGRES_DB: flowbridge
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+      
+    ports:
+      - "5432:5432"
+      
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./seeds/protocols.sql:/docker-entrypoint-initdb.d/02-protocols.sql:ro
+      - ./seeds/test_data.sql:/docker-entrypoint-initdb.d/03-test-data.sql:ro
+      
+    command: >
+      postgres 
+      -c shared_preload_libraries=pg_stat_statements
+      -c pg_stat_statements.track=all
+      -c max_connections=200
+      -c shared_buffers=256MB
+      -c effective_cache_size=1GB
+      -c maintenance_work_mem=64MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
+      -c random_page_cost=1.1
+      -c effective_io_concurrency=200
+      -c work_mem=4MB
+      -c min_wal_size=1GB
+      -c max_wal_size=4GB
+      
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U flowbridge -d flowbridge"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  pgadmin:
+    image: dpage/pgadmin4:7.8
+    container_name: flowbridge-pgadmin
+    restart: unless-stopped
+    
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@flowbridge.local}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin123}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+      
+    ports:
+      - "8080:80"
+      
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - ./pgadmin_servers.json:/pgadmin4/servers.json:ro
+      
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: flowbridge-redis
+    restart: unless-stopped
+    
+    command: >
+      redis-server 
+      --appendonly yes
+      --appendfsync everysec
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lru
+      
+    ports:
+      - "6379:6379"
+      
+    volumes:
+      - redis_data:/data
+      
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  postgres_exporter:
+    image: prometheuscommunity/postgres-exporter:v0.14
